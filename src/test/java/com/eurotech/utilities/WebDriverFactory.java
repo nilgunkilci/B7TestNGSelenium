@@ -1,0 +1,32 @@
+package com.eurotech.utilities;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class WebDriverFactory {
+
+    // Task
+    // write a static method that  takes a string parameter name  : browserType
+    // it will setUp the browser
+    // and the method will return  chromedriver or firfox object
+    // name pf the method : getDriver
+
+    public static WebDriver getDriver(String browserType){
+        WebDriver driver = null;
+        switch (browserType.toLowerCase()){  // toLowerCase ile tüm harfler kücültülür ve karsilastirma daha kolay olur
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case  "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+        }
+
+
+        return driver;
+    }
+}

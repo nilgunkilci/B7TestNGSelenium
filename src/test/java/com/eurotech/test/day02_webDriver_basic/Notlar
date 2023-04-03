@@ -1,0 +1,62 @@
+        quit() ve close() metodlar
+
+    1 _ driver.quit();   // tüm tablari kapatir
+    2 _ driver.close();     // sadece acik olan tabi kapatir
+
+  // close() ile browser kapatildigi icin yeni bir browser object olusturmak lazim.
+  // yoksa exception hatasi veriyor
+
+
+__________________________________________________________________________________________________________
+            getTitle() ve getCurrrentUrl() metodlari
+*** getTitle() metodu web sitesinin baslik ismini alir.
+alinan isim dogrulama yapmak icin kullanilabilir.
+bunun icin string e atama yapabiliriz.
+
+***driver.getCurrentUrl();  metod ile web sayfasinin Url i alinabilir
+
+*** driver.getPageSource(); ile sayfanin kaynagi alinip,
+ string bir ifadeye atanarak konsolda yazdirilabilir
+
+
+
+______________________________________________________________________________________________________
+
+navigate.to() metodu , bir websayfasina gitmek icin kullanilir.
+* Fakat acik bir web sayfamiz var ve baska sayfaya gecmek istedigimizde kullaniriz
+
+Beispiel
+1.Step : browser aciyoruz
+WebDriverManager.chromedriver().setup();
+WebDriver driver = new ChromeDriver(); // empty browser
+
+2. Step : get() metod ile bir web sayfasina gidiyoruz.
+ driver.get("https://www.google.com/");
+
+3: Step : sonra navigate.to() metod ile baska bir web sayfasina yönleniyoruz
+ driver.navigate().to("https://de-de.facebook.com/");
+
+ ****navigate() ile kullanilan metodlar sunlardir.
+  //refresh to webpage
+         driver.navigate().refresh();
+  //goes back to back
+        driver.navigate().forward();
+  // goes back to previous page
+         driver.navigate().back();
+
+
+  _______________________________________________________________________________
+
+                    WebDriverFactory
+  NOT : Browser acmak icin kodu tekrar etmemek adina, WebDriverFactory metodu olusturduk.
+  bu sekilde metoda ekledigimiz tüm browserlari metodo cagirarak acabiliriz.
+  ** Bu metod utilities package de bulunuyor
+  ** Metodun adi : .getDriver( );  Parametre olarak hangi browseri istiyorsak yaziyoruz
+
+  Beispiel :
+  WebDriver driver = WebDriverFactory.getDriver("chrome");   // Bu browser acmak anlamindadir
+  driver.get("http://eurotech.study/");                      // Bu siteye gitmek demek
+
+
+  ____________________________________________________________________________________
+

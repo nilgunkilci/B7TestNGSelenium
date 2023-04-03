@@ -1,0 +1,183 @@
+ CSS LOCATOR
+--------------------------------------------
+* web element :  acilis tagi ile baslar acilis tagi ile biter
+* bir web element icinde baska web elementler olabilir.
+Web element icinde attribute lar vardir.
+* web elementler parent-child ya da siblings seklinde gider.
+*** Selenium arka planda css ile calisir.
+
+____________________________________________________________________________________________
+    1- WITH ID LOCATING ELEMENT
+    Beispiel Web Element :
+<input id="loginpage-input-email" type="email" placeholder="Email Address"
+name="email" required="" value="">
+
+  1 way : #value of ID :
+ #loginpage-input-email
+
+  2 way : tagName#value of ID :
+  input#loginpage-input-email
+
+______________________________________________________________________________________________________
+     2- LOCATING ELEMENT WITH CLASS
+     Beispiel web element :
+      <input type="submit" class="btn btn-primary" id="loginpage-form-btn"
+     value="Login">
+
+     xpath ile almak istersek : //input[@class='btn btn-primary']
+
+     CSS ile
+     1 way : .valueOfClass → yani class value nun önüne nokta eklenir.
+      .btn.btn-primary (if there is a space , put (.) instead of space )
+
+     2 way : tagName.valueOfClass →
+      input.btn.btn-primary
+
+
+__________________________________________________________________________________________________
+       3- LOCATING ELEMENT WITH KNOWN ATTIRBUTE& VALUE
+
+    ***** Tag Name + ATTIRBUTE& VALUE
+     Beispiel Web element :
+     <input id="loginpage-input-email" type="email" placeholder="Email Address"
+     name="email" required="" value="">
+
+     Xpath ile  : //input[@type='email']
+
+     CSS ile : TagName[attribute=‘value’] →
+      input[type='email']
+
+    *********  ATTIRBUTE& VALUE (tagname olmadan)
+     Beispiel Web element :
+     <input id="loginpage-input-email" type="email" placeholder="Email Address"
+     name="email" required="" value="">
+
+     CSS ile : -[attribute=‘value’] → [type="email"]
+     CSS ile : -[class=‘value’]     → [class='btn btn-primary'
+
+__________________________________________________________________________________________
+
+            4- LOCATING DYNAMIC ELEMENT WITH STARTING WITH ( ^)
+
+      Beispiel Web element - Amazon search icon :
+        <input id="nav-search-submit-button" type="submit"
+        class="nav-input nav-progressive-attribute" value="Go" tabindex="0">
+
+    xpath ile : //input[starts-with(@id,'nav-s')]
+
+    CSS ile  : TagName[attribute^=‘value’] →
+               input[id^='nav-s']
+
+       Beispiel web element :
+        <input id="loginpage-input-email" type="email" placeholder="Email Address"
+        name="email" required="" value="">
+
+    xpath ile : //input[starts-with(@placeholder,'Email')]
+
+    CSS ile : TagName[attribute^=‘value’] →
+              input[placeholder^='Email']
+
+_____________________________________________________________________________________
+
+            5- LOCATING DYNAMIC ELEMENT WITH ENDING WITH ( $ )
+
+        Beispiel Web element - dev Ex :
+        <input id="loginpage-input-email" type="email" placeholder="Email Address"
+        name="email" required="" value="">
+
+    xpath ile : *****we cannot use “ends-with” with chrome
+
+    CSS ile : TagName[attribute$=‘value’] →
+              input[placeholder$='Address']
+
+____________________________________________________________________________________________
+
+            6- LOCATING DYNAMIC ELEMENT WITH CONTAINS ( * )
+
+        Beispiel Web element :
+        <p class="my-1" id="loginpage-form-warn-text">Don't have an account?
+        <a href="/register">Sign Up</a></p>
+
+    xpath  ile : //p[contains(@id,'warn')]
+
+    CSS ile : TagName[attribute*=‘value’]
+             p[id*='warn']
+
+_______________________________________________________________________________________
+
+            7- LOCATING ELEMENTS WITH MULTIPLE ATTRIBUTES
+
+        Beispiel Web element :
+        <input id="loginpage-input-email" type="email" placeholder="Email Address"
+        name="email" required="" value="">
+
+    xpath ile : //input[@type='email'][@name="email"]
+               ***** also we can use with “ and ” & “ or ”
+
+    CSS ile : TagName[attribute1=‘value1’][attribute2=‘value2’]
+              input[type='email'][name="email"]
+             **** we can NOT use “and” & “or”
+
+_______________________________________________________________________________________
+
+            HOW TO LOCATE CHILD ELEMENT IN CSS ?
+
+        Beispiel Web element :
+        <input id="loginpage-form-pw-input" type="password" placeholder="Password"
+        name="password" minlength="6" value="">
+
+    xpath ile  :
+                ' / ' is used to go to child element
+                //tag/tag/tag
+                we can go second div child with indexing div(2)
+                Beispiel :  //section/form/div[2]/input
+                NOT : child dan parent a /.. ile gecilir
+
+    CSS ile  : Css: tag>tag>tag
+               We use  > for navigating to child element
+               Beispiel : section>form>div>input
+               2.way : body section p   ( sadece bosluk yaoiyoruz)
+
+               NOT : we can NOT use index with CSS
+               NOT : Css de Cihd dan parent a gecis yoktur.
+
+__________________________________________________________________________________________
+
+           LOCATING FOLLOWING SIBLING
+
+    xpath ile  :  /following-sibling::tagname  kullanilir
+                //p[@class="lead"]/following-sibling::span
+
+    CSS ile    : <knownCSS> ~ tagName
+                [class="lead"]~span
+                NOT : sadece sonraki kardes gecer
+
+________________________________________________________________________________________
+
+            FOR ALL LOCATORS OTHER THAN LINKS
+
+    ID : Always look for id first, they are unique (dynamic problem)
+    NAME : Not always unique, (can be duplicate (radio buttons))
+    TagName : If it is unique you can use it
+    className: if there is a space we cannot use.
+    CSS : partial dynamic, attribute value ,more than one class, direct ID
+    XPATH: text of element, index, child parent.
+
+_______________________________________________________________________________________
+            CSS vs XPATH
+
+    CSS is slightly faster than xpath on IE, for other browser is same
+    CSS, IE'de xpath'ten biraz daha hızlıdır, diğer tarayıcılarda aynıdır
+    CSS is easier to write and read, cleaner syntax.
+    CSS'nin yazılması ve okunması daha kolaydır, daha temiz sözdizimi.
+    CSS can not locate element using text
+    CSS ile text kullanılarak web element locate edilemez
+    CSS cannot find from matches based on index
+    CSS ile index kullanarak web element locate edilemez
+    CSS cannot locate child to parent
+    CSS, child tan parent a gidilmez
+    Xpath is flexible and can do more than CSS but it is little complex to write.
+    Xpath, CSS'den daha fazlasını yapabilir, ancak yazması biraz karmaşıktır
+
+
+

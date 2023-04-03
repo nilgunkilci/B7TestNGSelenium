@@ -1,0 +1,74 @@
+                    BASIC LOCATORS
+
+*** We have 8 different locators
+1- id
+2- name
+3- tagName
+4- className
+5- linkText
+6- partialLinkText
+7- xpath
+8- CSS selector
+
+
+            1- id --> takes id attribute's value
+     Beispiel: WebElement inputUserEmail = driver.findElement(By.id("userEmail"));
+
+* It is always unique 99%.
+* It is the first locator we are looking for.
+* Check it is dynamic or static. If it is static, we can use it.
+not : How to understand id value is static or not?
+      After inspecting the webElemment and finding value, refresh
+      the web page.
+      If the value is changing we can NOT USE, refresh couple times,
+      always be sure.
+
+            2- name --> takes name attribute's value
+      Beispiel:  WebElement emailInputBox = driver.findElement(By.name("email"));
+
+* If we can not find or use id locator we look for the name locator
+* name locator is not dynamic 99% time
+* â name locator can be duplicate ( radio button )
+
+            3- tagName --> takes tag
+     Beispiel: WebElement verifyExperienceCredentials = driver.findElement(By.tagName("h2"));
+
+* tagName if we can not find id or name we look for tagName
+NOT : Selenium reads the source code from top the button
+      If your locators match with one webelement, selenium stop there
+      For the second element selenium starts again from the top
+      If there are multiple tagNames, we cannot point the second one
+* We can NOT use index when we use tagName locator
+
+            4- className --> takes class attribute's value
+     Beispiel: WebElement experienceText = driver.findElement(By.className("my-2"));
+* If there is a space in the value of class attribute, we can not use className locator
+* We will use it later to locate multiple elements in one shot
+
+            5- linkText --> takes exact text of the link
+      Beispiel: WebElement example1= driver.findElement(By.linkText("Example 1: Element on page that is hidden"));
+* Üzerine tiklandiginda bir sayfaya baglanan teste link test denir.
+* Using full and exact text or link to locate link webElement on the web page.
+* Seems like .equals() method in Java
+
+            6- partialLinkText --> takes partial text of the link
+       Beispiel: driver.findElement(By.partialLinkText("Example 2")).click();
+
+* Using part of the linktext to locate the link webElement
+* Part of the link must be unique text part
+* Seems like .contains() method in Java
+
+
+_______________________________________________________________________________________
+Home work
+/** Class Task
+* go to the url - "https://www.browserstack.com/users/sign_up"
+* maximize the window
+* accept cookies if any,
+* fill in the blanks with the faker class
+* click "Term of service" checkbox
+* and close the window
+*
+* hint: u can use any locator you want
+*
+*/

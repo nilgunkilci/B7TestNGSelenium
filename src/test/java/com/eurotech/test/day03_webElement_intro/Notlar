@@ -1,0 +1,31 @@
+***** Kücük bir not : sitelerdeki cerezleri kabul icn su kodu kullaniyoruz.
+
+ WebElement understandBtn = driver.findElement(By.id("rcc-confirm-button")); // buradaki parametreyi sitenin webtool dan almaliyiz.
+ understandBtn.click();
+
+
+ ___________________________________________________________
+ WebElement classi
+ *** WebElementleri bulmak icin bu clasi su sekilde kullaniyoruz.
+
+ Beispiel :
+ WebElement  emailInputBox = driver.findElement(By.id("loginpage-input-email"));
+  // Parametreye bulmak istenilen web elementin locatori yazilir
+
+  *** getAttribute() metodu Web elementin belirtilen attribute value sunu verir
+ Beispiel :
+        String value = emailInputBox.getAttribute("placeholder");
+        System.out.println("value = " + value);
+
+ _____________________________________________________________________________________
+
+ Click () metodu, belirtilen butonu tiklar
+ Beispiel :
+ WebElement loginBtn = driver.findElement(By.id("loginpage-form-btn"));
+ loginBtn.click();
+
+ ________________________________________________________________________________________
+
+ equals() metodu esit mi sorusunu sorar
+ Beispiel :
+ (expectedUrl.equals(actualUrl)

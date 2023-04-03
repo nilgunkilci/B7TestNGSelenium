@@ -1,0 +1,23 @@
+Faker class ile sahte veriler olusturulur.
+faker library , github dan gelir
+faker class ile sahte isim. hyvan sehir isimleri, adresler, mail ler password lar olusturabilirsiniz.
+
+öncelikle faker class dan object olusturulmalidir.
+beispiel:
+ Faker faker = new Faker();
+ System.out.println("faker.animal().name() = " + faker.animal().name());
+
+
+______________________________________________________________________
+BIR BROWSER ACMAK VE BIR WEB SAYFASINA GITMEK
+
+1. Step : browser acmak icin , acmak istedigimiz browseri setup etmeliyiz.
+
+ Chrome icin su sekilde :
+ WebDriverManager.chromedriver().setup();
+ WebDriver  driver = new ChromeDriver();
+
+ 2. Step : Bir siteye gitmek icin get() metodu kullaniriz.
+
+ Amazon sitesine gitmek icin su sekilde
+  driver.get("https://www.amazon.com.tr/");
