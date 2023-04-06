@@ -10,4 +10,10 @@ public class DashboardPage extends BasePage{
 
     @FindBy(xpath = "//p[contains(text(),'Welcome')]")
     public WebElement welcomeMessage;
+
+    @FindBy(xpath = "//tbody/tr[2]/td[2]")
+    public WebElement jobTitle;
+
 }
+
+
