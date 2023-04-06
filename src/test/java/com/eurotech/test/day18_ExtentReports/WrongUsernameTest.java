@@ -27,8 +27,8 @@ public class WrongUsernameTest extends TestBase {
         String actualMessage=loginPage.warningMessage.getText();
 
         extentLogger.info("Verify that NOT log in");
-       // Assert.assertEquals(actualMessage,"Invalid Credentials!");
-       Assert.assertEquals(actualMessage,"Invalid Credentials!!!!!!!!");
+        Assert.assertEquals(actualMessage,"Invalid Credentials!");
+       //Assert.assertEquals(actualMessage,"Invalid Credentials!!!!!!!!");  // Bunu testin gecmemesi icin bu satiri kullan
 
         extentLogger.pass("PASSED");
     }
@@ -51,8 +51,8 @@ public class WrongUsernameTest extends TestBase {
         String actualMessage=loginPage.warningMessage.getText();
 
         extentLogger.info("Verify that NOT log in");
-        //Assert.assertEquals(actualMessage,"Invalid Credentials!");
-        Assert.assertEquals(actualMessage,"Invalid Credentials!!!!!!!!");  // Bunu testin gecmemesi icin ac
+        Assert.assertEquals(actualMessage,"Invalid Credentials!");
+        //Assert.assertEquals(actualMessage,"Invalid Credentials!!!!!!!!");  // Bunu testin gecmemesi icin bu satiri kullan
 
         extentLogger.pass("PASSED");
     }
