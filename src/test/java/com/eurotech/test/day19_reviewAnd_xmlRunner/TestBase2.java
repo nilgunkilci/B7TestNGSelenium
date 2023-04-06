@@ -1,4 +1,4 @@
-package com.eurotech.test;
+package com.eurotech.test.day19_reviewAnd_xmlRunner;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -16,17 +16,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
-import java.lang.module.Configuration;
 import java.util.concurrent.TimeUnit;
 
-public class TestBase {
+public class TestBase2 {
+
+    // bunlarin protected olma sebebi sadece ayni package icinde cagirmak icin. public olursa tüm proje icinden cagrilir.
     protected WebDriver driver;
     protected Actions actions;
     protected WebDriverWait wait;
     protected ExtentReports report;
     protected ExtentHtmlReporter htmlReporter;
     protected ExtentTest extentLogger;
-
     @BeforeTest
     public void setUpTest(){
         //initialize the class
@@ -48,7 +48,7 @@ public class TestBase {
         report.setSystemInfo("Environment","Production");
         report.setSystemInfo("Browser", ConfigurationReader.get("browser"));
         report.setSystemInfo("OS",System.getProperty("os.name"));
-        report.setSystemInfo("Test Engineer","Nilgun K");
+        report.setSystemInfo("Test Engineer","Nilgün K");
 
     }
     @AfterTest
@@ -57,31 +57,32 @@ public class TestBase {
     }
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         driver= Driver.get();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        // driver.manage().window().maximize();
-        actions=new Actions(driver);
-        wait=new WebDriverWait(Driver.get(),15);
-        //driver.get(ConfigurationReader.get("url"));
-    }
+        driver.manage().window().maximize();
+        actions= new Actions(driver);
+        wait= new WebDriverWait(Driver.get(),15);
+        //  driver.get(ConfigurationReader.get("url"));  // her test icin ayni url olsa idi burada kullanilabilirdi.
+        //  ama biz dersde farkli sitelerden örnekler verdigimiz icin her bir test icin ayri yaziyoruz
 
+
+    }
     @AfterMethod
-    public void tearDown(ITestResult result) throws InterruptedException, IOException {
+    public void tearDown(ITestResult result) throws InterruptedException, IOException {  // exception buraya eklendi
         // if test fails
-        if(result.getStatus()==ITestResult.FAILURE){
+        if(result.getStatus()== ITestResult.FAILURE){
             //Record the name of the failed test
             extentLogger.fail(result.getName());
             //Take the screenshot and return the location of screenshot
-            String screenShotPath= BrowserUtils.getScreenshot(result.getName());
+            String screenShotPath= BrowserUtils.getScreenshot(result.getName());  // getScreenshot , hata veriyor. bunun icin hover yaptigimizda add exception yapiyoruz. bu yukarida otomatik ekleniyor.
             //Add the screenshot to the report
             extentLogger.addScreenCaptureFromPath(screenShotPath);
             //capture the exception and put inside the report
             extentLogger.fail(result.getThrowable());
         }
         Thread.sleep(2000);
-        //driver.close();
+        // driver.close();
         Driver.closeDriver();
     }
 }
-

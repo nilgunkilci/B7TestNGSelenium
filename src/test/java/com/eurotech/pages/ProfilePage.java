@@ -11,4 +11,10 @@ public class ProfilePage extends TestBase {
 
     @FindBy(linkText = "Go Back")
     public WebElement goBackBnt;
+
+    @FindBy(id = "editprofile-from-company-input")
+    public WebElement companyName;
+
+    @FindBy(xpath = "//input[@value='Eurotech Study']")
+    public WebElement companyName2;
 }

@@ -15,12 +15,14 @@ import java.util.List;
 
 public class DashboardTest2 extends TestBase {
 
-   LoginPage loginPage = new LoginPage();
-   DashboardPage dashboardPage = new DashboardPage();
-   BrowserUtils browserUtils = new BrowserUtils();
-   PostsPage postsPage =new PostsPage();
+   LoginPage loginPage  ;
+   DashboardPage dashboardPage ;
+
+   PostsPage postsPage  ;
    @Test
    public void verifyList() {
+      loginPage=new LoginPage();
+      dashboardPage=new DashboardPage();
       driver.get(ConfigurationReader.get("url"));
       loginPage.login();
       String expectedText = "Welcome Teacher";
@@ -41,7 +43,8 @@ public class DashboardTest2 extends TestBase {
 
    @Test
    public void verifyList2() {
-
+      loginPage=new LoginPage();
+      dashboardPage=new DashboardPage();
       // yukaridaki testi BrowserUitils metodlarini kullanarak yaptik
       driver.get(ConfigurationReader.get("url"));
       loginPage.login();
@@ -54,11 +57,11 @@ public class DashboardTest2 extends TestBase {
       expectedList.add("My Account");
 
       // 1st way
-      Assert.assertEquals(BrowserUtils.getElementsText(dashboardPage.menuList),expectedList);
+      //Assert.assertEquals(BrowserUtils.getElementsText(dashboardPage.menuList),expectedList);
 
       // 2nd way
-      // List<String> actualList = BrowserUtils.getElementsText(dashboardPage.menuList);
-      // Assert.assertEquals(actualList,expectedList);
+       List<String> actualList = BrowserUtils.getElementsText(dashboardPage.menuList);
+       Assert.assertEquals(actualList,expectedList);
 
    }
 
@@ -71,24 +74,28 @@ public class DashboardTest2 extends TestBase {
        *  Navigate to My Posts and verify that submit button is visible then
        *  Navigate to Log Out and verify that log out successfully
        */
-
+      loginPage=new LoginPage();
+      dashboardPage=new DashboardPage();
+      postsPage = new PostsPage();
       driver.get(ConfigurationReader.get("url"));
       loginPage.login();
+      String expectedText = "Welcome Teacher";
+      Assert.assertEquals(dashboardPage.welcomeMessage.getText(),expectedText);
 
       // erste step
       // Navigate to My Posts and verify that submit button is visible then
       dashboardPage.navigateToMenu("My Account");
       //driver.findElement(By.xpath("// i[@class='fab fa-usps']/..")).click();
       dashboardPage.navigateToSubmenu("My Posts");
-      //Assert.assertTrue(postsPage.submitButton.isDisplayed());
-       BrowserUtils.verifyElementDisplayed(postsPage.submitButton);
+      Assert.assertTrue(postsPage.submitButton.isDisplayed());
+      // BrowserUtils.verifyElementDisplayed(postsPage.submitButton);
 
        // zweite step
       // Navigate to Log Out and verify that log out successfully
       dashboardPage.navigateToMenu("My Account");
       dashboardPage.navigateToSubmenu("Logout");
-     // Assert.assertTrue(loginPage.loginBtn.isDisplayed());
-      BrowserUtils.verifyElementDisplayed(loginPage.loginBtn);
+      Assert.assertTrue(loginPage.loginBtn.isDisplayed());
+      //BrowserUtils.verifyElementDisplayed(loginPage.loginBtn);
 
 
    }
