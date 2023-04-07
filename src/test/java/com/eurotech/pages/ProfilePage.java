@@ -4,17 +4,13 @@ import com.eurotech.test.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProfilePage extends TestBase {
+public class ProfilePage extends BasePage {
 
-    @FindBy( id = "editprofile-from-github-input")
+    @FindBy(name = "githubusername")
     public WebElement githubusername;
 
     @FindBy(linkText = "Go Back")
     public WebElement goBackBnt;
-
-    @FindBy(id = "editprofile-from-company-input")
-    public WebElement companyName;
-
-    @FindBy(xpath = "//input[@value='Eurotech Study']")
-    public WebElement companyName2;
+    @FindBy(xpath ="//input[@name='githubusername']" )
+    public WebElement getGithubusername;
 }

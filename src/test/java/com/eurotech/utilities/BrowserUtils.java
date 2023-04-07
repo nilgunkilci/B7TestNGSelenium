@@ -17,9 +17,6 @@ import java.util.List;
 
 public class BrowserUtils {
 
-
-    // BU METODLARIN HEPSINI FRAMEWORK UNE EKLEME: SADECE IHTIYACIN OLANI EKLE
-
     /*
      * takes screenshot
      * @param name

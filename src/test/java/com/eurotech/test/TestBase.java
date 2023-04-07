@@ -16,7 +16,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
-import java.lang.module.Configuration;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -63,7 +62,7 @@ public class TestBase {
         // driver.manage().window().maximize();
         actions=new Actions(driver);
         wait=new WebDriverWait(Driver.get(),15);
-        //driver.get(ConfigurationReader.get("url"));
+       // driver.get(ConfigurationReader.get("url"));
     }
 
     @AfterMethod
@@ -81,7 +80,7 @@ public class TestBase {
         }
         Thread.sleep(2000);
         //driver.close();
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 }
 

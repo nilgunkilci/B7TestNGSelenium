@@ -14,11 +14,8 @@ public class LoginPage extends BasePage{
    // }
 
 
-
     @FindBy(id = "rcc-confirm-button")
     public WebElement understandBtn;
-
-
     @FindBy(id = "loginpage-input-email")
     public WebElement usernameInput;
     @FindBy(id = "loginpage-form-pw-input")
