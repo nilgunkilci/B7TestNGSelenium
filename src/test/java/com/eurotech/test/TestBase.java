@@ -80,7 +80,8 @@ public class TestBase {
         }
         Thread.sleep(2000);
         //driver.close();
-       // Driver.closeDriver();
+        Driver.closeDriver(); // CloseDriver metodunu Driver classinda yazdik.
+                                // driver i kapatip, degerini null döndürüyor.
     }
 }
 

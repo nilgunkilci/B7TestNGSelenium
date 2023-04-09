@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends BasePage{
 
     // artik buradaa bu metoda ihtiyac yok. bu metodu BasePage class a yaziyoruz
+    // Bu constroctor ile @FindBy anotation lar aktif hale gelir.
    // public LoginPage(){
     //    PageFactory.initElements(Driver.get(),this);
    // }
