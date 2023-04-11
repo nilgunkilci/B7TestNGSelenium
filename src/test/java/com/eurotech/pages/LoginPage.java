@@ -3,6 +3,7 @@ package com.eurotech.pages;
 import com.eurotech.utilities.ConfigurationReader;
 import com.eurotech.utilities.Driver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -26,11 +27,11 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[.='Invalid Credentials!']")
     public WebElement warningMessage;
 
- //    @FindAll({
-//            @FindBy(id = "loginpage-input-email"),
-//            @FindBy(name = "email2")
-//    })
-//    public WebElement usernameInput2;
+ //   @FindAll({
+ //          @FindBy(id = "loginpage-input-email"),
+ //           @FindBy(name = "email2")
+  // })
+  //  public WebElement usernameInput2;
 //
 //    @FindBys({
 //            @FindBy(id = "loginpage-input-email"),

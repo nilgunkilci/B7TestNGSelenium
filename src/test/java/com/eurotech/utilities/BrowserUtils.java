@@ -17,6 +17,8 @@ import java.util.List;
 
 public class BrowserUtils {
 
+    // Buradaki metodlar selenium3 icin.
+    // Selenium 4 icin kullanmak istenirse yorumleri degistirmek gerekli.
     /*
      * takes screenshot
      * @param name
