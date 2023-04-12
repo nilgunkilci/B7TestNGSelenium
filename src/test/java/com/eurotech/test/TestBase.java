@@ -62,7 +62,7 @@ public class TestBase {
         // driver.manage().window().maximize();
         actions=new Actions(driver);
         wait=new WebDriverWait(Driver.get(),15);
-       // driver.get(ConfigurationReader.get("url"));
+      // driver.get(ConfigurationReader.get("url"));
     }
 
     @AfterMethod
